@@ -1,8 +1,11 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import Nav from './src/nav'
 import Generate from './src/generate'
 import ListItems from './src/listItems';
+import Inputs from './src/inputs';
 
 const App = () => {
   const [random,setRandom] = useState([20,55]);
@@ -28,6 +31,11 @@ const App = () => {
   }
 
   return(
+    <KeyboardAwareScrollView
+            style={{ backgroundColor: '#4c69a5' }}
+            resetScrollToCoords={{ x: 0, y: 0 }}
+            contentContainerStyle={styles.container}
+            scrollEnabled={false}>
     <View>
       <View style={styles.mainView}>
         <Nav nameOfApp="Awesome App"/>
@@ -51,7 +59,11 @@ const App = () => {
       </View>
       <ListItems items={random} 
       remove={(pos)=>onItemRemove(pos)}/>
+      <View>
+        <Inputs/>
+      </View>
     </View>
+    </KeyboardAwareScrollView>
   )
 }
  
