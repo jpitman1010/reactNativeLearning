@@ -14,10 +14,17 @@ const App = () => {
 //   }, 2000)
 // },[])
 
-  onAddRandom = () => {
+  const onAddRandom = () => {
     const randomVal = Math.floor(Math.random() * 100) +1; 
     const newState = [...random,randomVal];
     setRandom(newState) 
+  }
+
+  const onItemRemove = (position) => {
+      const newArray = random.filter((item,i) =>{
+        return position !== i;
+      });
+      setRandom(newArray);
   }
 
   return(
@@ -42,7 +49,8 @@ const App = () => {
       <View>
       <Generate add={()=> onAddRandom()}/>
       </View>
-      <ListItems items={random}/>
+      <ListItems items={random} 
+      remove={(pos)=>onItemRemove(pos)}/>
     </View>
   )
 }

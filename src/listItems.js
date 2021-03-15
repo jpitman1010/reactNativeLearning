@@ -3,14 +3,11 @@ import { Text, View, StyleSheet, Pressable } from 'react-native';
 
 
 
-const ListItems = ({items}) => {
+const ListItems = ({items, remove}) => {
     return(
         items.map((item,i) => (
             <Pressable
-            onPress={() => alert('fast press occurred')}
-            onLongPress={() => alert('long press occurred')}
-            onPressIn={() => alert('pressing button in')}
-            onPressOut={() => alert('releasing button press')}
+            onPress={() => remove(i)}
 
             >
                 <View 
