@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
-import { Text, View, StyleSheet, ScrollView, ActivityIndicator, Image } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, ActivityIndicator, Image, ImageBackground } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import Nav from './src/nav'
@@ -45,14 +45,20 @@ const App = () => {
     onScroll={(e)=>console.log(e)}
 
     style={{width:'100%'}}>
-      <Image
+      
+    <ImageBackground
+    source={EIB}
+    style={styles.eib}>
+
+
+      {/* <Image
       // resizeMode={'contain'}
       width={"100%"}
       height={400}
       source={{uri: 'https://picsum.photos/400/400'}}
       // source={EIB}
       // style={styles.eib}
-      />
+      /> */}
       <View style={styles.basicView}>
         <Text style={styles.basicText}>
           Text for View 1
@@ -75,6 +81,7 @@ const App = () => {
       <View>
         <Inputs/>
       </View>
+        </ImageBackground>
       </ScrollView>
         </View>
         <ActivityIndicator animating={false}/> 
