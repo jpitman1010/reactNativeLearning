@@ -7,6 +7,8 @@ import Generate from './src/generate'
 import ListItems from './src/listItems';
 import Inputs from './src/inputs';
 import EIB from './src/assets/IMG_74.png';
+import ModalComponent from './src/modal'
+
 
 const App = () => {
   const [random,setRandom] = useState([20,55]);
@@ -85,6 +87,7 @@ const App = () => {
       </ScrollView>
         </View>
         <ActivityIndicator animating={false}/> 
+        <ModalComponent/>
         {/* unmounts component when set to false.  so it only shows up when you set it to true */}
     </KeyboardAwareScrollView>
   )
