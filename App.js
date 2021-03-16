@@ -47,10 +47,11 @@ const App = () => {
     style={{width:'100%'}}>
       <Image
       // resizeMode={'contain'}
-      resizeMode={'cover'}
-
-      source={EIB}
-      style={styles.eib}
+      width={"100%"}
+      height={400}
+      source={{uri: 'https://picsum.photos/400/400'}}
+      // source={EIB}
+      // style={styles.eib}
       />
       <View style={styles.basicView}>
         <Text style={styles.basicText}>
