@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import Nav from './src/nav'
@@ -36,10 +36,11 @@ const App = () => {
             resetScrollToCoords={{ x: 0, y: 0 }}
             contentContainerStyle={styles.container}
             scrollEnabled={false}>
-    <View>
       <View style={styles.mainView}>
         <Nav nameOfApp="Awesome App"/>
-      </View>
+    <ScrollView 
+    onContentSizeChange={(w,h)=>alert(h)}
+    style={{width:'100%'}}>
       <View style={styles.basicView}>
         <Text style={styles.basicText}>
           Text for View 1
@@ -52,8 +53,8 @@ const App = () => {
       </View>
       {/* {hello ?
       <Text>
-        Hello Everybody
-      </Text> :null} */}
+      Hello Everybody
+    </Text> :null} */}
       <View>
       <Generate add={()=> onAddRandom()}/>
       </View>
@@ -62,7 +63,8 @@ const App = () => {
       <View>
         <Inputs/>
       </View>
-    </View>
+      </ScrollView>
+        </View>
     </KeyboardAwareScrollView>
   )
 }
