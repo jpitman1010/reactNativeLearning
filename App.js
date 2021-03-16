@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import Nav from './src/nav'
@@ -39,7 +39,10 @@ const App = () => {
       <View style={styles.mainView}>
         <Nav nameOfApp="Awesome App"/>
     <ScrollView 
-    onContentSizeChange={(w,h)=>alert(h)}
+    // onContentSizeChange={(w,h)=>alert(h)}
+    // onMomentumScrollBegin={()=>alert('started scrolling')}
+    onScroll={(e)=>console.log(e)}
+
     style={{width:'100%'}}>
       <View style={styles.basicView}>
         <Text style={styles.basicText}>
@@ -65,6 +68,7 @@ const App = () => {
       </View>
       </ScrollView>
         </View>
+        <ActivityIndicator/>
     </KeyboardAwareScrollView>
   )
 }
