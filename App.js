@@ -1,11 +1,12 @@
 import React, { Component, useState, useEffect } from 'react';
-import { Text, View, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, ActivityIndicator, Image } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import Nav from './src/nav'
 import Generate from './src/generate'
 import ListItems from './src/listItems';
 import Inputs from './src/inputs';
+import EIB from './src/assets/IMG_74.png';
 
 const App = () => {
   const [random,setRandom] = useState([20,55]);
@@ -44,6 +45,13 @@ const App = () => {
     onScroll={(e)=>console.log(e)}
 
     style={{width:'100%'}}>
+      <Image
+      // resizeMode={'contain'}
+      resizeMode={'cover'}
+
+      source={EIB}
+      style={styles.eib}
+      />
       <View style={styles.basicView}>
         <Text style={styles.basicText}>
           Text for View 1
@@ -68,7 +76,8 @@ const App = () => {
       </View>
       </ScrollView>
         </View>
-        <ActivityIndicator/>
+        <ActivityIndicator animating={false}/> 
+        {/* unmounts component when set to false.  so it only shows up when you set it to true */}
     </KeyboardAwareScrollView>
   )
 }
@@ -91,6 +100,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
     width: '100%',
     marginBottom: 5,
+  },
+  eib: {
+    width:'100%',
+    height: 500,
+    marginTop:20,
   }
 
 })
